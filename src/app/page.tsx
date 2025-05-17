@@ -21,8 +21,25 @@ export default function Home() {
         </p>
       </main>
       <footer className=" text-sm text-white row-start-3 text-center">
-        <p>Vía España, Río Abajo, Calle 11, al costado de WesterUnion</p>
-        <p>📞 (+507) 6563-0899</p>
+        <p>
+          <a
+            className="hover:text-[#ed6719]"
+            href="https://www.google.com/maps/place/EMYMOTO+Taller/@9.015007,-79.4990182,17z/data=!3m1!4b1!4m6!3m5!1s0x8faca9bde26add33:0x7db70a050ee8f36c!8m2!3d9.015007!4d-79.4990182!16s%2Fg%2F11lg2g5_1z?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+          >
+            Vía España, Río Abajo, Calle 11, al costado de WesterUnion
+          </a>
+        </p>
+        <p>
+          📞
+          <a
+            href="https://wa.me/50765630899"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#ed6719]"
+          >
+            (+507) 6563-0899
+          </a>
+        </p>
         <div className="">
           <a href="#" className="hover:text-[#ed6719]" aria-label="Instagram">
             Instagram
