@@ -35,6 +35,10 @@ const columnFields: Field[] = [
         label: 'Full',
         value: 'full',
       },
+      {
+        label: 'Four Columns',
+        value: 'fourColumns',
+      },
     ],
   },
   {
