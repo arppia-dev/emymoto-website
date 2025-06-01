@@ -24,19 +24,11 @@ const serverFunction: ServerFunctionClient = async function (args) {
 
 const Layout = ({ children }: Args) => (
   <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
-    <pre>
-      {JSON.stringify(
-        {
-          S3_BUCKET: process.env.S3_BUCKET,
-          S3_ACCESS_KEY: process.env.S3_ACCESS_KEY,
-          S3_SECRET_ACCESS_KEY: process.env.S3_SECRET_ACCESS_KEY,
-          S3_ENDPOINT: process.env.S3_ENDPOINT,
-          S3_REGION: process.env.S3_REGION,
-        },
-        null,
-        2,
-      )}
-    </pre>
+    {process.env.NEXT_PUBLIC_SHOW_ENV === 'true' && (
+      <pre style={{ background: '#eee', padding: '1rem', marginBottom: '1rem', fontSize: 12 }}>
+        {JSON.stringify(process.env, null, 2)}
+      </pre>
+    )}
     {children}
   </RootLayout>
 )
