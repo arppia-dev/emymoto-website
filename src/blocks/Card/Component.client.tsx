@@ -2,7 +2,6 @@
 
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
-import { cn } from '@/utilities/ui'
 
 type CardProps = {
   typeCard?: ('simple' | 'complex') | null
