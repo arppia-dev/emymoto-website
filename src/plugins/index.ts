@@ -1,15 +1,16 @@
+import { revalidateRedirects } from '@/hooks/revalidateRedirects'
+import { beforeSyncWithSearch } from '@/search/beforeSync'
+import { searchFields } from '@/search/fieldOverrides'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
-import { seoPlugin } from '@payloadcms/plugin-seo'
 import { searchPlugin } from '@payloadcms/plugin-search'
-import { Plugin } from 'payload'
-import { revalidateRedirects } from '@/hooks/revalidateRedirects'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
-import { searchFields } from '@/search/fieldOverrides'
-import { beforeSyncWithSearch } from '@/search/beforeSync'
+import { s3Storage } from '@payloadcms/storage-s3'
+import { Plugin } from 'payload'
 
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
@@ -49,7 +50,7 @@ export const plugins: Plugin[] = [
   }),
   nestedDocsPlugin({
     collections: ['categories'],
-    generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ''),
+    generateURL: (docs: any) => docs.reduce((url: any, doc: any) => `${url}/${doc.slug}`, ''),
   }),
   seoPlugin({
     generateTitle,
@@ -91,4 +92,41 @@ export const plugins: Plugin[] = [
     },
   }),
   payloadCloudPlugin(),
+  s3Storage({
+    collections: {
+      media: true,
+    },
+    bucket: process.env.S3_BUCKET ?? '',
+    config: {
+      credentials: {
+        accessKeyId: process.env.S3_ACCESS_KEY ?? '',
+        secretAccessKey: process.env.S3_SECRET_ACCESS_KEY ?? '',
+      },
+      region: process.env.S3_REGION ?? '',
+      endpoint: process.env.S3_ENDPOINT ?? '',
+    },
+  }),
 ]
+
+/*
+S3_BUCKET=hafbuy-strapi-space
+S3_ACCESS_KEY=DO801BKTCUXH2KCCBWHC
+S3_SECRET_ACCESS_KEY=4T2feAck87go9WPAPNjo6vR8Zh4xIV7kaiv2PgfzcIU
+S3_ENDPOINT=https://nyc3.digitaloceanspaces.com/hafbuy-media-library-int
+S3_REGION=nyc3
+
+ s3Storage({
+    collections: {
+      media: true,
+    },
+    bucket: 'hafbuy-strapi-space',
+    config: {
+      credentials: {
+        accessKeyId: 'DO00T3Y66QJ7HYTDR4EX',
+        secretAccessKey: 'Ja/qi4e+pQk8YCuVgVMEA0Lv8H5Kpej2/kZyT/06P7M',
+      },
+      region: 'nyc3',
+      endpoint: 'https://nyc3.digitaloceanspaces.com/hafbuy-media-library-int',
+    },
+  }),
+*/
