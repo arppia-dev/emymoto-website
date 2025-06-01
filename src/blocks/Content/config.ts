@@ -11,6 +11,7 @@ import {
 import { link } from '@/fields/link'
 import { MediaBlock } from '../MediaBlock/config'
 import { Code } from '../Code/config'
+import { Card } from '../Card/config'
 
 const columnFields: Field[] = [
   {
@@ -46,7 +47,7 @@ const columnFields: Field[] = [
           HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
           FixedToolbarFeature(),
           InlineToolbarFeature(),
-          BlocksFeature({ blocks: [Code, MediaBlock] }),
+          BlocksFeature({ blocks: [Code, MediaBlock, Card] }),
         ]
       },
     }),
