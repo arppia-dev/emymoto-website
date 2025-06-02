@@ -1676,6 +1676,8 @@ export interface CodeBlock {
 export interface CardBlock {
   typeCard?: ('simple' | 'complex') | null;
   title: string;
+  icon?: ('Wrench' | 'Settings' | 'Bolt' | 'ShipWheel' | 'BatteryCharging') | null;
+  image?: (string | null) | Media;
   richText?: {
     root: {
       type: string;
@@ -1691,8 +1693,6 @@ export interface CardBlock {
     };
     [k: string]: unknown;
   } | null;
-  icon?: string | null;
-  image?: (string | null) | Media;
   id?: string | null;
   blockName?: string | null;
   blockType: 'card';

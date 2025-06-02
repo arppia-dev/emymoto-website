@@ -32,6 +32,34 @@ export const Card: Block = {
       required: true,
     },
     {
+      name: 'icon',
+      type: 'select',
+      required: false,
+      label: 'Icon',
+      options: [
+        { label: 'Wrench', value: 'Wrench' },
+        { label: 'Settings', value: 'Settings' },
+        { label: 'Bolt', value: 'Bolt' },
+        { label: 'ShipWheel', value: 'ShipWheel' },
+        { label: 'BatteryCharging', value: 'BatteryCharging' },
+      ],
+      admin: {
+        condition: (_, siblingData) => siblingData?.typeCard === 'simple',
+        components: {
+          Field: '@/blocks/Card/CustomIconSelect#CustomIconSelect',
+        },
+      },
+    },
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+      admin: {
+        condition: (_, siblingData) => siblingData?.typeCard === 'complex',
+      },
+    },
+    {
       name: 'richText',
       type: 'richText',
       editor: lexicalEditor({
@@ -46,22 +74,13 @@ export const Card: Block = {
       }),
       label: false,
     },
-    {
+    /* {
       name: 'icon',
       type: 'text',
       required: false,
       admin: {
         condition: (_, siblingData) => siblingData?.typeCard === 'simple',
       },
-    },
-    {
-      name: 'image',
-      type: 'upload',
-      relationTo: 'media',
-      required: false,
-      admin: {
-        condition: (_, siblingData) => siblingData?.typeCard === 'complex',
-      },
-    },
+    }, */
   ],
 }
