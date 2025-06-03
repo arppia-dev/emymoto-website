@@ -28,7 +28,8 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
             return (
               <div
                 className={cn('col-span-4', {
-                  'lg:col-span-3': size === 'fourColumns',
+                  'col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3':
+                    size === 'fourColumns',
                   'lg:col-span-4': size === 'oneThird',
                   'lg:col-span-6': size === 'half',
                   'lg:col-span-8': size === 'twoThirds',

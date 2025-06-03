@@ -14,7 +14,7 @@ type Props = CombinedNodeTypes & {
 export const CardBlock: React.FC<Props> = ({ className, ...props }) => {
   return (
     <div className={[className, 'not-prose'].filter(Boolean).join(' ')}>
-      <Card {...props} />
+      <Card {...props} imgClassName="size-16 rounded-full object-cover sm:size-[72px]" />
     </div>
   )
 }
