@@ -1676,7 +1676,6 @@ export interface CodeBlock {
 export interface CardBlock {
   typeCard?: ('simple' | 'complex') | null;
   title: string;
-  icon?: ('Wrench' | 'Settings' | 'Bolt' | 'ShipWheel' | 'BatteryCharging') | null;
   image?: (string | null) | Media;
   richText?: {
     root: {

@@ -31,7 +31,7 @@ export const Card: Block = {
       type: 'text',
       required: true,
     },
-    {
+    /*{
       name: 'icon',
       type: 'select',
       required: false,
@@ -49,15 +49,15 @@ export const Card: Block = {
           Field: '@/blocks/Card/CustomIconSelect#CustomIconSelect',
         },
       },
-    },
+    },*/
     {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
       required: false,
-      admin: {
+      /*admin: {
         condition: (_, siblingData) => siblingData?.typeCard === 'complex',
-      },
+      },*/
     },
     {
       name: 'richText',
@@ -74,13 +74,5 @@ export const Card: Block = {
       }),
       label: false,
     },
-    /* {
-      name: 'icon',
-      type: 'text',
-      required: false,
-      admin: {
-        condition: (_, siblingData) => siblingData?.typeCard === 'simple',
-      },
-    }, */
   ],
 }
