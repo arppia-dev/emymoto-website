@@ -44,12 +44,12 @@ export const Card: React.FC<CardProps> = ({
         </div>
 
         <div className="mt-4 sm:mt-0">
-          <h3 className="text-lg font-medium text-pretty text-gray-900">{title}</h3>
+          <h3 className="text-lg font-medium text-pretty text-gray-900 dark:text-white">{title}</h3>
         </div>
       </div>
       {richText && (
         <RichText
-          className="mt-4 line-clamp-4 text-sm text-pretty text-gray-700"
+          className="mt-4 line-clamp-4 text-sm text-pretty text-gray-700 dark:text-white"
           data={richText}
           enableGutter={false}
         />

@@ -19,7 +19,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
 
   return (
     <div className="container my-16">
-      <div className="grid grid-cols-4 lg:grid-cols-12 gap-y-8 gap-x-16">
+      <div className="grid grid-cols-4 lg:grid-cols-12 gap-y-8 gap-x-8">
         {columns &&
           columns.length > 0 &&
           columns.map((col, index) => {
@@ -28,8 +28,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
             return (
               <div
                 className={cn('col-span-4', {
-                  'col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3':
-                    size === 'fourColumns',
+                  'sm:col-span-6 xl:col-span-3': size === 'fourColumns',
                   'lg:col-span-4': size === 'oneThird',
                   'lg:col-span-6': size === 'half',
                   'lg:col-span-8': size === 'twoThirds',
