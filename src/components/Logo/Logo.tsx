@@ -16,7 +16,10 @@ export const Logo = (props: Props) => {
   return (
     /* eslint-disable @next/next/no-img-element */
 
-    <div style={{ background: '#000', padding: '1rem', borderRadius: '8px' }}>
+    <div
+      className="bg-slate-900 dark:bg-transparent"
+      style={{ padding: '1rem', borderRadius: '8px' }}
+    >
       <img
         alt="logo emymoto"
         width={193}
