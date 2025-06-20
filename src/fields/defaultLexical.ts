@@ -10,6 +10,7 @@ import {
   AlignFeature,
   UnorderedListFeature,
   OrderedListFeature,
+  EXPERIMENTAL_TableFeature,
 } from '@payloadcms/richtext-lexical'
 
 export const defaultLexical = lexicalEditor({
@@ -21,6 +22,7 @@ export const defaultLexical = lexicalEditor({
     AlignFeature(),
     UnorderedListFeature(),
     OrderedListFeature(),
+    EXPERIMENTAL_TableFeature(),
     LinkFeature({
       enabledCollections: ['pages', 'posts'],
       fields: ({ defaultFields }) => {

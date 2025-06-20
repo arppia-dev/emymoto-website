@@ -16,7 +16,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
   })
 
   return (
-    <div className="relative -mt-36 pt-32 pb-20 bg-slate-900 text-white" data-theme="dark">
+    <div className="relative -mt-40 pt-52 pb-20 bg-slate-900 text-white" data-theme="dark">
       <div className="container relative flex flex-col lg:flex-row w-full">
         <div className="w-full lg:w-2/4 text-center md:text-left flex items-center">
           <div className="min-w-full">
